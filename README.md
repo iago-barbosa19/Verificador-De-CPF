@@ -12,7 +12,6 @@ Sou novato em Python e até mesmo em programação, mas busco melhorar, então s
 Int para dar a oportunidade de caso o usuário queira seja permitido inserir o CPF com a máscara já inclusa,  não tenha chances de dar erro.</br>
 ========
 
-========
 4° Foi adicionado um outro módulo para ser feito a verificação de CNPJ</br>
 ========
 Exemplo de código para caso ocorram dúvidas.</br>
