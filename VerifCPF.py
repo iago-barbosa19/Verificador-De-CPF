@@ -18,21 +18,24 @@ else:
 """
 
 
-def verif_cpf(pass_cpf):
-    calculo_cpf = []
-    calculo_cpf2 = []
-    digitos = []
+def verif_cpf(pass_cpf: str) -> bool:
+    nums: defaultdict = defaultdict(lambda: 0)
+    calculo_cpf: list = []
+    calculo_cpf2: list = []
+    digitos: list = []
     if len(pass_cpf) > 10:
-        pass_cpf = pass_cpf.split(".")
-        pass_cpf = "".join(pass_cpf)
-        pass_cpf = pass_cpf.split("-")
-        pass_cpf = "".join(pass_cpf)
+        pass_cpf: list= pass_cpf.split(".")
+        pass_cpf: str = "".join(pass_cpf)
+        pass_cpf: list = pass_cpf.split("-")
+        pass_cpf: str = "".join(pass_cpf)
     if pass_cpf == "111111111111" or pass_cpf == "22222222222" or pass_cpf == "33333333333" or pass_cpf ==\
             "44444444444" or pass_cpf == "55555555555" or pass_cpf == "66666666666"\
             or pass_cpf == "77777777777" or pass_cpf == "88888888888" or pass_cpf == "99999999999":
         return False
-    cpfv = deque(pass_cpf)
-    contador = 11
+    if len(pass_cpf) < 10:
+        return False
+    cpfv: list = deque(pass_cpf)
+    contador: int = 11
     if len(digitos) < 1:
         for x in range(9):
             contador -= 1
@@ -44,7 +47,7 @@ def verif_cpf(pass_cpf):
             digitos.append(0)
         else:
             digitos.append(11 - (calculo_cpf % 11))
-    contador = 12
+    contador: int = 12
     for x in range(10):
         contador -= 1
         if x < 9:
@@ -66,15 +69,14 @@ def verif_cpf(pass_cpf):
         return False
 
 
-def imprime_cpf(pass_cpf):
-    """ Essse If também se encontra aqui para evitar erros caso o CPF venha com máscara."""
+def imprime_cpf(pass_cpf: str) -> str:
     if len(pass_cpf) > 10:
-        pass_cpf = pass_cpf.split(".")
-        pass_cpf = "".join(pass_cpf)
-        pass_cpf = pass_cpf.split("-")
-        pass_cpf = "".join(pass_cpf)
-    cpf1 = pass_cpf[0:3]
-    cpf2 = pass_cpf[3:6]
-    cpf3 = pass_cpf[6:9]
-    cpf4 = pass_cpf[9:11]
+        pass_cpf: list = pass_cpf.split(".")
+        pass_cpf: str = "".join(pass_cpf)
+        pass_cpf: list = pass_cpf.split("-")
+        pass_cpf: str = "".join(pass_cpf)
+    cpf1: str = pass_cpf[0:3]
+    cpf2: str = pass_cpf[3:6]
+    cpf3: str = pass_cpf[6:9]
+    cpf4: str = pass_cpf[9:11]
     return f"{cpf1}.{cpf2}.{cpf3}-{cpf4}"

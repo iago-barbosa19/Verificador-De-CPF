@@ -10,21 +10,21 @@ from collections import (
 nums = defaultdict(lambda: 0)
 
 
-def verif_cnpj(pass_cnpj):
-    calculo_cnpj = []
-    calculo_cnpj2 = []
-    digitos = []
+def verif_cnpj(pass_cnpj) -> bool:
+    calculo_cnpj: list = []
+    calculo_cnpj2: list = []
+    digitos: list = []
     if len(pass_cnpj) > 14:
-        pass_cnpj = pass_cnpj.split(".")
-        pass_cnpj = "".join(pass_cnpj)
-        pass_cnpj = pass_cnpj.split("/")
-        pass_cnpj = "".join(pass_cnpj)
-        pass_cnpj = pass_cnpj.split("-")
-        pass_cnpj = "".join(pass_cnpj)
+        pass_cnpj: list = pass_cnpj.split(".")
+        pass_cnpj: str = "".join(pass_cnpj)
+        pass_cnpj: list = pass_cnpj.split("/")
+        pass_cnpj: str = "".join(pass_cnpj)
+        pass_cnpj: list = pass_cnpj.split("-")
+        pass_cnpj: str = "".join(pass_cnpj)
     if len(pass_cnpj) < 14:
         return False
-    cnpjv = deque(pass_cnpj)
-    y = 0
+    cnpjv: deque = deque(pass_cnpj)
+    y: int = 0
     if len(digitos) < 1:
         for x in range(5, 1, -1):
             nums[y] = int(cnpjv[y])
@@ -65,17 +65,17 @@ def verif_cnpj(pass_cnpj):
         return False
 
 
-def imprime_cnpj(pass_cnpj):
+def imprime_cnpj(pass_cnpj) -> str:
     if len(pass_cnpj) > 12:
-        pass_cnpj = pass_cnpj.split(".")
-        pass_cnpj = "".join(pass_cnpj)
-        pass_cnpj = pass_cnpj.split("/")
-        pass_cnpj = "".join(pass_cnpj)
-        pass_cnpj = pass_cnpj.split("-")
-        pass_cnpj = "".join(pass_cnpj)
-    cnpj1 = pass_cnpj[0:2]
-    cnpj2 = pass_cnpj[2:5]
-    cnpj3 = pass_cnpj[5:8]
-    cnpj4 = pass_cnpj[8:12]
-    cnpj5 = pass_cnpj[12:15]
+        pass_cnpj: list = pass_cnpj.split(".")
+        pass_cnpj: str = "".join(pass_cnpj)
+        pass_cnpj: list = pass_cnpj.split("/")
+        pass_cnpj: str = "".join(pass_cnpj)
+        pass_cnpj: list = pass_cnpj.split("-")
+        pass_cnpj: str = "".join(pass_cnpj)
+    cnpj1: str = pass_cnpj[0:2]
+    cnpj2: str = pass_cnpj[2:5]
+    cnpj3: str = pass_cnpj[5:8]
+    cnpj4: str = pass_cnpj[8:12]
+    cnpj5: str = pass_cnpj[12:15]
     return f"{cnpj1}.{cnpj2}.{cnpj3}/{cnpj4}-{cnpj5}"
